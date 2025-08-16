@@ -1,0 +1,139 @@
+body { margin: 0;
+
+}
+.container{
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header{
+    background-color: deepskyblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+
+}
+
+.header-title{
+    margin: 0;
+    font-weight: 700;
+}
+
+.icon{
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.main{
+    background-color: azure;
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.left-section{
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  gap: 12px;
+  padding: 24px;
+}
+.feeder{ display:flex; flex-direction:column; align-items:center; gap: 12px; }
+.food-bag{ width: 120px; cursor:pointer; user-select:none; transition: transform .15s; }
+.food-bag:active{ transform: scale(.95) rotate(-2deg); }
+
+.feed-picker{ display:flex; gap: 10px; }
+.pick{
+  display:flex; align-items:center; gap: 6px;
+  padding: 6px 10px; border:1.5px solid #ddd; border-radius: 999px; background:#fff; cursor:pointer;
+}
+.pick img{ width: 28px; height: 28px; object-fit: cover; border-radius: 50%; }
+.pick.active{ border-color:#85C355; box-shadow: 0 0 0 3px rgba(133,195,85,.15); }
+.pick span{ font-size: 14px; }
+
+/* .right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 480px;
+  background: url("cat images/house.png") no-repeat center 10%;
+  background-size: contain;
+} 
+
+.box {
+  padding: 20px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box-img {
+  width: 150px;
+
+} */
+
+.right-section{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height: 70vh;            /* 讓背景房子有高度 */
+  position: relative;
+}
+
+/* 房子容器 */
+.house{
+  position: relative;
+  width: min(70vw, 800px);     /* 依畫面縮放，最大 800px */
+  aspect-ratio: 1 / 1;         /* 與你的 house.png 接近方形，可依實際調整 */
+}
+
+/* 房子背景圖 */
+.house-bg{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display:block;
+}
+
+/* 房子內部的可放內容區（對齊到房子矩形牆面） */
+.house-content{
+  position: absolute;
+  /* 這四個數字是關鍵：把內容限制在屋頂下、牆面裡；可微調 */
+  inset: 22% 24% 8% 24%;       /* top right bottom left（百分比更好適配）*/
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* 上下兩層 */
+  gap: 8%;
+  pointer-events: none;        /* 內容不擋到拖曳（可拿掉）*/
+}
+
+/* 每一層：置中對齊 */
+.floor{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* 卡片本身（可保留你原本的 .box 設計） */
+.box{ padding:16px 20px; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; background:rgba(255,255,255,.75); border-radius:12px; }
+@media (min-width:768px){ .box{ flex-direction:row; text-align:left; } }
+.box-img{ width:150px; border-radius:8px; user-select:none; }
+.bowl{ width:90px; user-select:none; transition: transform .1s; }
+.bowl.pop{ transform: scale(1.08); }
+.bowl.selected{ outline: 3px solid #85C355; border-radius: 8px; }
+
+/* 中央提示圖（TOAST） */
+.toast{
+  position: fixed; inset:0; display:none; align-items:center; justify-content:center;
+  background: rgba(0,0,0,.35); z-index: 1000;
+}
+.toast.show{ display:flex; }
+.toast img{ max-width:min(70vw, 460px); height:auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.35)); }

@@ -1,0 +1,74 @@
+<html lang="zh-Hant"></html>
+<head>
+    <link rel="stylesheet" href="cat.css" />
+</head>
+
+<body class="container">
+    <header class="header">
+        <img class="icon" src="cat images/animal-shelter.png"/>
+        <h2>小嘟芙的成長日記</h2>
+    </header>
+    <main class="main"> 
+        <div class="left-section">
+            <div class="feeder">
+                <img id="food-bag" class="food-bag" src="cat images/food-bag.png" alt="Food bag">
+                <div class="feed-picker">
+                    <button class="pick active" data-cat="dudu">
+                        <img src="cat images/dudu_eat.png" alt="feed dudu">
+                        <span>Feed Dudu</span>
+                    </button>
+                    <button class="pick" data-cat="fufu">
+                        <img src="cat images/fufu_eat.png" alt="feed fufu">
+                        <span>Feed Fufu</span>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+        <div class="right-section">
+            <div class="house">
+                <img class="house-bg" src="cat images/house2.png" alt="house"/>
+
+                <div class="house-content">
+                    <!-- 上層 -->
+                     <div class="floor floor-top">
+                        <div class="box" data-cat="dudu">
+                            <img class="box-img" 
+                            src="cat images/dudu.jpg" 
+                            data-normal="cat images/dudu.jpg"
+                            data-eat="cat images/dudu_eat.png"
+                            alt="Dudu"/>
+                            <div class="box-text">
+                                <h3>嘟嘟</h3>
+                                <p>我是男生，在2022.03.21來到這個世界上，我是一隻金吉拉，我很傲嬌，也很愛吃。</p>
+                            </div>
+                        </div>
+                        <img class="bowl" data-cat="dudu" alt="bowl"/>
+                     </div>
+                     <!-- 下層 -->
+                     <div class="floor floor-bottom">
+                        <div class="box" data-cat="fufu">
+                            <img class="box-img" 
+                            src="cat images/fufu.jpg"
+                            data-normal="cat images/fufu.jpg"
+                            data-eat="cat images/fufu_eat.png"
+                            alt="fufu"/>
+                            <div class="box-text">
+                                <h3>芙芙</h3>
+                                <p>我是女生，在2023.11.28來到這個世界上，我也是一隻金吉拉，我很乖，很愛撒嬌。</p>
+                            </div>
+                        </div>
+                        <img class="bowl" data-cat="fufu" alt="bowl">
+                     </div>
+                </div>
+            </div>
+        </div>
+            
+    </main>
+    <!-- 中央提示圖層 -->
+    <div id="toast" class="toast" aria-live="polite"><img alt=""></div>
+    <footer class="footer">© 2025 clare</footer>
+    <script src="cat.js"></script>
+
+
+</body>
