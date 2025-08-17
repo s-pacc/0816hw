@@ -8,14 +8,41 @@ body { margin: 0;
     height: 100vh;
 }
 
-.header{
-    background-color: deepskyblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 16px 24px;
+:root{
+  --header-h: 20px;     /* header 高度 (直接加大) */
+  --cloud-scale: 1;      /* 雲相對 header 的縮放：1=原尺寸, 1.2=放大20% */
+  --cloud-speed: 50s;    /* 飄動一圈時間：數字越大越慢 */
+  --cloud-shift: 2200px; /* 背景位移距離，與雲圖寬度接近即可 */
+}
 
+.header{
+  background-color: azure;
+  position: relative;
+  overflow: hidden;
+  min-height: var(--header-h);
+  padding: 24px;                  /* 標題區的內距，可視覺再調 */
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+
+.header > *{ position: relative; z-index: 1; }  /* 內容在雲上面 */
+
+/* 雲背景（水平重複，往左捲動） */
+.header::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image: url("./cat-images/cloud.png");
+  background-repeat: repeat-x;
+  /* 讓雲的高度 = header 高度 × scale */
+  background-size: auto calc(100% * var(--cloud-scale));
+  background-position: 0 center;
+  opacity:.9;
+  animation: cloud-move var(--cloud-speed) linear infinite;
+}
+
+/* 動畫：往左移動一定距離後循環 */
+@keyframes cloud-move{
+  from { background-position: 0 center; }
+  to   { background-position: calc(-1 * var(--cloud-shift)) center; }
 }
 
 .header-title{
@@ -30,9 +57,8 @@ body { margin: 0;
 }
 
 .main{
-    background-color: azure;
+    background-color: olivedrab;
     flex: 1;
-
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -54,7 +80,7 @@ body { margin: 0;
   padding: 6px 10px; border:1.5px solid #ddd; border-radius: 999px; background:#fff; cursor:pointer;
 }
 .pick img{ width: 28px; height: 28px; object-fit: cover; border-radius: 50%; }
-.pick.active{ border-color:#85C355; box-shadow: 0 0 0 3px rgba(133,195,85,.15); }
+.pick.active{ border-color:#558ac3; box-shadow: 0 0 0 3px rgba(85, 191, 195, 0.814); }
 .pick span{ font-size: 14px; }
 
 /* .right-section {
@@ -99,7 +125,7 @@ body { margin: 0;
 /* 房子背景圖 */
 .house-bg{
   width: 100%;
-  height: 100%;
+  height: 90%;
   object-fit: contain;
   display:block;
 }
@@ -108,27 +134,27 @@ body { margin: 0;
 .house-content{
   position: absolute;
   /* 這四個數字是關鍵：把內容限制在屋頂下、牆面裡；可微調 */
-  inset: 22% 24% 8% 24%;       /* top right bottom left（百分比更好適配）*/
+  inset: 11% 15% 4% 15%;       /* top right bottom left（百分比更好適配）*/
   display: grid;
   grid-template-rows: 1fr 1fr; /* 上下兩層 */
   gap: 8%;
-  pointer-events: none;        /* 內容不擋到拖曳（可拿掉）*/
 }
 
 /* 每一層：置中對齊 */
-.floor{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+.floor{ display:flex; align-items:center; justify-content:center; gap:16px; }
 
 /* 卡片本身（可保留你原本的 .box 設計） */
-.box{ padding:16px 20px; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; background:rgba(255,255,255,.75); border-radius:12px; }
+.box{ padding:4px 5px; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; background:rgba(255,255,255,.75); border-radius:12px; }
+
+@media (min-width:768px){ .main{ grid-template-columns:1fr 2fr; } }
+@media (min-width:1200px){ .main{ grid-template-columns:1fr 3fr; } }
+
+
 @media (min-width:768px){ .box{ flex-direction:row; text-align:left; } }
 .box-img{ width:150px; border-radius:8px; user-select:none; }
-.bowl{ width:90px; user-select:none; transition: transform .1s; }
+.bowl{ width:200px; user-select:none; transition: transform .1s; }
 .bowl.pop{ transform: scale(1.08); }
-.bowl.selected{ outline: 3px solid #85C355; border-radius: 8px; }
+.bowl.selected{ outline: 3px solid #558ac3; border-radius: 8px; }
 
 /* 中央提示圖（TOAST） */
 .toast{
@@ -137,3 +163,4 @@ body { margin: 0;
 }
 .toast.show{ display:flex; }
 .toast img{ max-width:min(70vw, 460px); height:auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.35)); }
+
