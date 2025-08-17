@@ -1,24 +1,28 @@
-<html lang="zh-Hant"></html>
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <link rel="stylesheet" href="cat.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="cat.css">
+    <title>小嘟芙的成長日記</title>
 </head>
 
 <body class="container">
     <header class="header">
-        <img class="icon" src="cat images/animal-shelter.png"/>
+        <img class="icon" src="./cat-images/animal-shelter.png"/>
         <h2>小嘟芙的成長日記</h2>
     </header>
     <main class="main"> 
         <div class="left-section">
             <div class="feeder">
-                <img id="food-bag" class="food-bag" src="cat images/food-bag.png" alt="Food bag">
+                <img id="food-bag" class="food-bag" src="./cat-images/food-bag.png" alt="Food bag">
                 <div class="feed-picker">
                     <button class="pick active" data-cat="dudu">
-                        <img src="cat images/dudu_eat.png" alt="feed dudu">
+                        <img src="./cat-images/dudu_eat.png" alt="feed dudu">
                         <span>Feed Dudu</span>
                     </button>
                     <button class="pick" data-cat="fufu">
-                        <img src="cat images/fufu_eat.png" alt="feed fufu">
+                        <img src="./cat-images/fufu_eat.png" alt="feed fufu">
                         <span>Feed Fufu</span>
                     </button>
                 </div>
@@ -27,16 +31,16 @@
         </div>
         <div class="right-section">
             <div class="house">
-                <img class="house-bg" src="cat images/house2.png" alt="house"/>
+                <img class="house-bg" src="./cat-images/house2.png" alt="house"/>
 
                 <div class="house-content">
                     <!-- 上層 -->
                      <div class="floor floor-top">
                         <div class="box" data-cat="dudu">
                             <img class="box-img" 
-                            src="cat images/dudu.jpg" 
-                            data-normal="cat images/dudu.jpg"
-                            data-eat="cat images/dudu_eat.png"
+                            src="./cat-images/dudu.jpg" 
+                            data-normal="./cat-images/dudu.jpg"
+                            data-eat="./cat-images/dudu_eat.png"
                             alt="Dudu"/>
                             <div class="box-text">
                                 <h3>嘟嘟</h3>
@@ -49,9 +53,9 @@
                      <div class="floor floor-bottom">
                         <div class="box" data-cat="fufu">
                             <img class="box-img" 
-                            src="cat images/fufu.jpg"
-                            data-normal="cat images/fufu.jpg"
-                            data-eat="cat images/fufu_eat.png"
+                            src="./cat-images/fufu.jpg"
+                            data-normal="./cat-images/fufu.jpg"
+                            data-eat="./cat-images/fufu_eat.png"
                             alt="fufu"/>
                             <div class="box-text">
                                 <h3>芙芙</h3>
@@ -70,5 +74,5 @@
     <footer class="footer">© 2025 clare</footer>
     <script src="cat.js"></script>
 
-
 </body>
+</html>
