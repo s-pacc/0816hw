@@ -2,7 +2,7 @@
 
 # 小嘟芙的成長日記 · Cat Diary
 
-> **建議用網頁觀看：** 請透過發佈後的網站網址（https://s-pacc.github.io/feed-cat-or-not/cat.html）或本機伺服器開啟。  
+> **建議用網頁觀看：** 請透過發佈後的網站網址 (https://s-pacc.github.io/feed-cat-or-not/cat.html) 或本機伺服器開啟。  
 > 直接雙擊 `cat.html` 可能因為 `file://` 路徑限制而導致版面/圖片載入異常。
 
 一個可愛的前端小專案：兩隻貓咪住在一棟房子裡。  
